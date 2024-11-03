@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: kafka-websocket
+  kafka:
+    bootstrap-servers:
+      - localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      group-id: my-group
+      auto-offset-reset: earliest
+
+app:
+  consumer:
+    kafka-default-topics: ${KAFKA_DEFAULT_TOPICS}
+server:
+  port: 8080
